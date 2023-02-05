@@ -1,29 +1,64 @@
-<script>
-	import { Card, Button, Rating, Badge } from 'flowbite-svelte';
+<script lang="ts">
+	import { Timeline, TimelineItem, Button } from 'flowbite-svelte';
+	import { onMount } from 'svelte';
+
+	let stories = [
+		{
+			title: '22 dead in Chile, as firefighters battle dozens of wildfires',
+			date: '1 minute ago',
+			link: 'https://www.google.com'
+		},
+		{
+			title: '22 dead in Chile, as firefighters battle dozens of wildfires',
+			date: '1 minute ago',
+			link: 'https://www.google.com'
+		},
+		{
+			title: '22 dead in Chile, as firefighters battle dozens of wildfires',
+			date: '1 minute ago',
+			link: 'https://www.google.com'
+		}
+	];
+
+	import { createScene } from '../lib/scene.js';
+	let el: any;
+	onMount(() => {
+		createScene(el);
+	});
 </script>
 
-<div class="p-8">
-	<Card padding="none">
-		<div class="p-5">
-			<div class="flex justify-between items-center">
-				<a href="/">
-					<h5 class="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
-						Tesla Inc <Badge color="dark">TSLA:NASDAQ</Badge>
-					</h5>
-				</a>
-				<div class="flex text-xl md:text-2xl flex-col items-end p-4 dark:text-white">
-					197.35
-					<div class="flex text-md md:text-lg flex-col items-end text-green-400 font-normal">
-						+9.08 (+4.82%)
-					</div>
+<div class="flex">
+	<div class="px-8 w-[65vw]">
+		<Timeline>
+			<TimelineItem>
+				<div
+					class="font-extrabold text-transparent text-8xl bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600 pt-10"
+				>
+					World News
 				</div>
-			</div>
-			<div class="flex justify-between items-center">
-				<Rating rating={4} size="18" class="mt-2.5 mb-5">
-					<Badge slot="text" class="ml-3">1,000+</Badge>
-				</Rating>
-				<Button href="/">Details</Button>
-			</div>
-		</div>
-	</Card>
+			</TimelineItem>
+			{#each stories as { title, date, link }}
+				<TimelineItem {title} {date}>
+					<a href={link}>
+						<Button color="alternative" class="my-2"
+							>Learn more<svg
+								class="ml-2 w-3 h-3"
+								fill="currentColor"
+								viewBox="0 0 20 20"
+								xmlns="http://www.w3.org/2000/svg"
+								><path
+									fill-rule="evenodd"
+									d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z"
+									clip-rule="evenodd"
+								/></svg
+							></Button
+						>
+					</a>
+				</TimelineItem>
+			{/each}
+		</Timeline>
+	</div>
+	<div class="flex items-center">
+		<canvas bind:this={el} class="w-[35vw] h-[27vw]" />
+	</div>
 </div>
