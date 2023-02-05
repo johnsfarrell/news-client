@@ -45,7 +45,7 @@
 	"dependencies": {
 		"@splinetool/loader": "^0.9.210",
 		"axios": "^1.3.2",
-		"finnhub": "^1.2.16",
+		"stompjs": "^2.3.3",
 		"svelte-cubed": "^0.2.1",
 		"three": "^0.149.0"
 	}

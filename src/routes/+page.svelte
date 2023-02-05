@@ -30,22 +30,23 @@
 		}
 	];
 
-	import { createScene } from '../lib/scene.js';
-	let el: any;
 	onMount(() => {
-		createScene(el);
+		var socket = new WebSocket('ws://localhost:8000/ws');
+		socket.addEventListener('open', () => {
+			console.log('Opened');
+		});
 	});
 </script>
 
 <DarkMode btnClass="hidden" />
-<div class="flex background-image: url(../lib/bgfades.svg) w-[100vw]">
-	<div class="px-8 w-[65vw]">
+<div class="flex w-[100vw] bg-gradient-to-br from-slate-800 to-slate-900 justify-center">
+	<div class="pr-[10vw] pl-3">
 		<Timeline>
 			<TimelineItem>
 				<div
-					class="font-extrabold text-transparent text-5xl md:text-7xl lg:text-8xl bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600 pt-10"
+					class="font-extrabold text-transparent text-5xl md:text-7xl bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600 pt-10"
 				>
-					World News
+					Live World News
 				</div>
 				<div class="ml-2 text-zinc-400 font-light text-xl">Live updates from across the world.</div>
 			</TimelineItem>
@@ -74,7 +75,7 @@
 			</div>
 		</Timeline>
 	</div>
-	<div class="flex items-center">
+	<!-- <div class="flex items-center">
 		<canvas bind:this={el} class="w-[35vw] h-[27vw]" />
-	</div>
+	</div> -->
 </div>

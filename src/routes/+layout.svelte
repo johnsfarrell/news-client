@@ -1,5 +1,4 @@
 <script>
-	import { DarkMode, Footer, FooterCopyright } from 'flowbite-svelte';
 	import '../app.postcss';
 </script>
 
