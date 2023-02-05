@@ -1,8 +1,18 @@
 <script lang="ts">
-	import { Timeline, TimelineItem, Button } from 'flowbite-svelte';
+	import { Timeline, TimelineItem, Button, DarkMode } from 'flowbite-svelte';
 	import { onMount } from 'svelte';
 
 	let stories = [
+		{
+			title: '22 dead in Chile, as firefighters battle dozens of wildfires',
+			date: '1 minute ago',
+			link: 'https://www.google.com'
+		},
+		{
+			title: '22 dead in Chile, as firefighters battle dozens of wildfires',
+			date: '1 minute ago',
+			link: 'https://www.google.com'
+		},
 		{
 			title: '22 dead in Chile, as firefighters battle dozens of wildfires',
 			date: '1 minute ago',
@@ -27,15 +37,17 @@
 	});
 </script>
 
-<div class="flex">
+<DarkMode btnClass="hidden" />
+<div class="flex background-image: url(../lib/bgfades.svg) w-[100vw]">
 	<div class="px-8 w-[65vw]">
 		<Timeline>
 			<TimelineItem>
 				<div
-					class="font-extrabold text-transparent text-8xl bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600 pt-10"
+					class="font-extrabold text-transparent text-5xl md:text-7xl lg:text-8xl bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600 pt-10"
 				>
 					World News
 				</div>
+				<div class="ml-2 text-zinc-400 font-light text-xl">Live updates from across the world.</div>
 			</TimelineItem>
 			{#each stories as { title, date, link }}
 				<TimelineItem {title} {date}>
@@ -56,6 +68,10 @@
 					</a>
 				</TimelineItem>
 			{/each}
+
+			<div class="h-10">
+				<TimelineItem date={'© 2023 John Farrell . All Rights Reserved.'} customTimeClass={'m-0'} />
+			</div>
 		</Timeline>
 	</div>
 	<div class="flex items-center">

@@ -7,10 +7,4 @@
 	<main>
 		<slot />
 	</main>
-	<footer>
-		<Footer>
-			<FooterCopyright href="/" by="John Farrell" year={2023} />
-			<DarkMode />
-		</Footer>
-	</footer>
 </div>
